@@ -1,0 +1,21 @@
+﻿@page "/sorteio"
+@rendermode InteractiveServer
+
+<h3>Sorteador de Números</h3>
+
+<button class="btn btn-success mb-3" @onclick="SorteiaNumero">Gerar Número Aleatório</button>
+
+@if (numeroSorteado.HasValue)
+{
+    <h2>Número sorteado: @numeroSorteado.Value</h2>
+}
+
+@code {
+    private int? numeroSorteado = null;
+    private readonly Random random = new Random();
+
+    private void SorteiaNumero()
+    {
+        numeroSorteado = random.Next(1, 101);
+    }
+}
